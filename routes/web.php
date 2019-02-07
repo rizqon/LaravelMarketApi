@@ -16,7 +16,7 @@ Route::get('/', function(){
 Route::get('/algoritma', function () {
     #Soal 1 a
     echo '<h3>Soal 1a</h3>';
-    $num = 10;
+    $num = 8;
     for ($i=$num; $i >= 1; $i--){
         for ($j = $i; $j >= 1; $j--){
             echo $j;

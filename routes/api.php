@@ -20,10 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware(['auth:api'])->group(function() {
 
     // Get User Product
-    Route::get('store/{merchant}', 'Api\ProductApiController@byMerchant');
+    Route::middleware('role:customer|merchant')->get('store/{merchant}', 'Api\ProductApiController@byMerchant');
 
     // Get Product Detail
-    Route::get('product/{product}', 'Api\ProductApiController@show');
+    Route::middleware('role:customer|merchant')->get('product/{product}', 'Api\ProductApiController@show');
 
     // Create Product
     Route::middleware('role:merchant')->post('product/create',  'Api\ProductApiController@create');
